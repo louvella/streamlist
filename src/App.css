@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+.menu {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #ffffff; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menu ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu li {
+  margin: 0 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menu-icon {
+  width: 30px; /* Adjust the size as needed */
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+  filter: brightness(1.2); /* Brightness increase on hover */
+}
+
+.streamlist-home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: top;
+  height: 100px; /* Adjust height as needed for better centering */
+  text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.streamlist-logo {
+  justify-content: top;
+  max-width: 400px; /* Adjust size as needed */
+  margin-bottom: 20px;
 }
