@@ -1,5 +1,3 @@
-// StreamListHome.js
-
 import React, { useState } from "react";
 
 function StreamListHome() {
