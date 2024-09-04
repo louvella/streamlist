@@ -5,7 +5,7 @@ import Movies from "./pages/Movies";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
 import './App.css';
-import homeIcon from './assets/home.png'; // Add your image paths here
+import homeIcon from './assets/home.png'; 
 import moviesIcon from './assets/movies.png';
 import cartIcon from './assets/cart.png';
 import aboutIcon from './assets/about.png';
