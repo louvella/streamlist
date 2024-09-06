@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 
-function StreamListHome() {
+function StreamListHome({ onAddEvent }) {
   const [input, setInput] = useState("");
-  
+
   const handleInputChange = (event) => {
     setInput(event.target.value);
   };
-  
+
   const handleSubmit = () => {
     console.log(input);
+    onAddEvent(`User submitted: ${input}`); // Add the input as an event
+    setInput(""); // Clear the input field after submission
   };
-  
+
   return (
     <div className="streamlist-home-container">
       <h1>Welcome to StreamList!</h1>
