@@ -15,7 +15,7 @@ function StreamListHome({ onAddEvent }) {
 
   return (
     <div className="streamlist-home-container">
-      <h1>Welcome to StreamList!</h1>
+      <h1>Search Movies</h1>
       <input type="text" value={input} onChange={handleInputChange} />
       <button onClick={handleSubmit}>Submit</button>
     </div>

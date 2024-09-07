@@ -1,9 +1,9 @@
-// User.js
+// UserInformation.js
 
 import React from "react";
 import { Link } from "react-router-dom";
 
-function UserPage() {
+function UserInformation() {
   return (
     <div className="streamlist-home-container">
       <nav className="submenu">
@@ -15,14 +15,17 @@ function UserPage() {
         </ul>
 
       </nav>
-      <h1>Membership Information</h1>
-        <div><p>Member Name: John Smith</p>
-        <p>Current Subscription: Platinum Plan $29.99mo.</p>
-        <p>Payment Method: xxxx xxxx xxxx xxxx Expiration: 8/2028</p>
-
+      <h1>Modify Member Contact Information</h1>
+        <div>User name: John Smith
+        <p>Address: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>City:</p>
+        <p>State:</p>
+        <p>Zip:</p>
+        <p>Phone Number:</p>
+        <p>Email Address:</p>
         </div>
     </div>
   );
 }
 
-export default UserPage;
+export default UserInformation;

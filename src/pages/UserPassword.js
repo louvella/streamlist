@@ -1,9 +1,9 @@
-// User.js
+// UserPassword.js
 
 import React from "react";
 import { Link } from "react-router-dom";
 
-function UserPage() {
+function UserPassword() {
   return (
     <div className="streamlist-home-container">
       <nav className="submenu">
@@ -15,14 +15,13 @@ function UserPage() {
         </ul>
 
       </nav>
-      <h1>Membership Information</h1>
-        <div><p>Member Name: John Smith</p>
-        <p>Current Subscription: Platinum Plan $29.99mo.</p>
-        <p>Payment Method: xxxx xxxx xxxx xxxx Expiration: 8/2028</p>
-
+      <h1>Change User Password</h1>
+      <div>Old Password: xxxxxxxxxxxxxxxxxx
+        <p>New Password: xxxxxxxxxxxxxxxxxx</p>
+        <p>Verify New Password: xxxxxxxxxxxxxxxxxx</p>
         </div>
     </div>
   );
 }
 
-export default UserPage;
+export default UserPassword;

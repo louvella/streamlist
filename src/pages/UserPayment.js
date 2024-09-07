@@ -1,9 +1,11 @@
-// User.js
+// UserPayment.js
+
+// UserPassword.js
 
 import React from "react";
 import { Link } from "react-router-dom";
 
-function UserPage() {
+function UserPayment() {
   return (
     <div className="streamlist-home-container">
       <nav className="submenu">
@@ -15,14 +17,15 @@ function UserPage() {
         </ul>
 
       </nav>
-      <h1>Membership Information</h1>
-        <div><p>Member Name: John Smith</p>
-        <p>Current Subscription: Platinum Plan $29.99mo.</p>
-        <p>Payment Method: xxxx xxxx xxxx xxxx Expiration: 8/2028</p>
-
+      <h1>Change Credit Card</h1>
+      <div>Current Credit Card: xxxx xxxx xxxx xxxx Expiration: 8/2028
+        <p>New Credit Card Number: xxxxxxxxxxxxxxxxxx</p>
+        <p>Expiration: xx/xx</p>
+        <p>Code: xxxx</p>
         </div>
     </div>
   );
 }
 
-export default UserPage;
+export default UserPayment;
+

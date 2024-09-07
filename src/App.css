@@ -1,14 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
+  padding: 10px 20px; 
+  background-color: #ffffff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
 .menu {
   display: flex;
-  justify-content: center;
-  padding: 10px;
-  background-color: #ffffff; 
+  justify-content: flex-end; /* Align items to the right */
 }
 
 .menu ul {
   display: flex;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .menu li {
@@ -29,9 +38,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: top;
-  height: 100px; /* Adjust height as needed for better centering */
-  text-align: center; 
+  justify-content: flex-start;
+  padding-top: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .streamlist-home-container input[type=text] {
@@ -49,17 +59,23 @@
   cursor: pointer;
 }
 .streamlist-logo {
-  justify-content: top;
-  max-width: 400px; /* Adjust size as needed */
-  margin-bottom: 20px;
+  max-width: 250px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
 }
+
 .user-events-container {
-  margin-top: 100px;
-  padding: 10px;
+  margin-top: 20px;
+  padding: 20px;
   border-top: 1px solid #ddd;
   width: 80%;
   max-width: 600px;
   text-align: center;
+  position: relative;
+  background-color: #ffffff;
+  z-index: 10;
+  overflow-y: auto;
+  max-height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .user-events-container h2 {
@@ -69,7 +85,7 @@
 .user-events-container ul {
   list-style-type: none;
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0;
 }
 
 .user-events-container li {
@@ -90,4 +106,32 @@
 
 .user-events-container button:hover {
   background-color: #0056b3;
+}
+
+.submenu {
+  margin-top: none; 
+  height: 50px;
+  justify-content: flex-start; 
+  background-color: #000000;
+}
+
+.submenu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.submenu li {
+  margin: 0 10px;
+}
+
+.submenu a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.submenu a:hover {
+  color: #000000;
+  background-color: #ffffff;
 }
