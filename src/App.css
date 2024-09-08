@@ -10,7 +10,7 @@ header {
 
 .menu {
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end; 
 }
 
 .menu ul {
@@ -25,13 +25,13 @@ header {
 }
 
 .menu-icon {
-  width: 30px; /* Adjust the size as needed */
+  width: 30px;
   transition: transform 0.3s, filter 0.3s;
 }
 
 .menu-icon:hover {
-  transform: scale(1.1); /* Zoom effect on hover */
-  filter: brightness(1.2); /* Brightness increase on hover */
+  transform: scale(1.1); 
+  filter: brightness(1.2); 
 }
 
 .streamlist-home-container {
@@ -59,8 +59,8 @@ header {
   cursor: pointer;
 }
 .streamlist-logo {
-  max-width: 250px; /* Adjust size as needed */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 250px; 
+  height: auto; 
 }
 
 .user-events-container {

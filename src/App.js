@@ -5,10 +5,10 @@ import Movies from "./pages/Movies";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
 import User from "./pages/User";
-import UserInformation from "./pages/UserInformation"; // New Import
-import UserPassword from "./pages/UserPassword"; // New Import
-import UserPayment from "./pages/UserPayment"; // New Import
-import UserSubscription from "./pages/UserSubscription"; // New Import
+import UserInformation from "./pages/UserInformation"; 
+import UserPassword from "./pages/UserPassword"; 
+import UserPayment from "./pages/UserPayment";
+import UserSubscription from "./pages/UserSubscription";
 import './App.css';
 import homeIcon from './assets/home.png'; 
 import moviesIcon from './assets/movies.png';
@@ -108,7 +108,7 @@ function App() {
           <Route path="/cart" element={<Cart onAddEvent={handleAddEvent} />} />
           <Route path="/about" element={<About onAddEvent={handleAddEvent} />} />
           <Route path="/user" element={<User onAddEvent={handleAddEvent} />} />
-          {/* Submenu Routes */}
+          {/* Submenu */}
           <Route path="/user/information" element={<UserInformation />} />
           <Route path="/user/password" element={<UserPassword />} />
           <Route path="/user/payment" element={<UserPayment />} />

@@ -9,8 +9,8 @@ function StreamListHome({ onAddEvent }) {
 
   const handleSubmit = () => {
     console.log(input);
-    onAddEvent(`User submitted: ${input}`); // Add the input as an event
-    setInput(""); // Clear the input field after submission
+    onAddEvent(`User submitted: ${input}`); 
+    setInput(""); 
   };
 
   return (
