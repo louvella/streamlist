@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// App.js
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import StreamListHome from "./pages/StreamListHome";
 import Movies from "./pages/Movies";
@@ -19,6 +20,19 @@ import logo from './assets/sllogo.png';
 
 function App() {
   const [events, setEvents] = useState([]);
+  const [editingEvent, setEditingEvent] = useState(null);
+  const [editingText, setEditingText] = useState("");
+
+  // Load events from localStorage on mount
+  useEffect(() => {
+    const storedEvents = JSON.parse(localStorage.getItem("userEvents")) || [];
+    setEvents(storedEvents);
+  }, []);
+
+  // Save events to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("userEvents", JSON.stringify(events));
+  }, [events]);
 
   const handleAddEvent = (event) => {
     setEvents((prevEvents) => [...prevEvents, event]);
@@ -34,6 +48,27 @@ function App() {
 
   const handleIconHover = (iconName) => {
     handleAddEvent(`Icon Hover: ${iconName} icon hovered`);
+  };
+
+  // Function to start editing an event
+  const handleEditEvent = (index) => {
+    setEditingEvent(index);
+    setEditingText(events[index]);
+  };
+
+  // Function to save the edited event
+  const handleSaveEvent = () => {
+    const updatedEvents = [...events];
+    updatedEvents[editingEvent] = editingText;
+    setEvents(updatedEvents);
+    setEditingEvent(null);
+    setEditingText("");
+  };
+
+  // Function to cancel event editing
+  const handleCancelEdit = () => {
+    setEditingEvent(null);
+    setEditingText("");
   };
 
   return (
@@ -101,7 +136,6 @@ function App() {
             </ul>
           </nav>
         </header>
-
         <Routes>
           <Route path="/" element={<StreamListHome onAddEvent={handleAddEvent} />} />
           <Route path="/movies" element={<Movies onAddEvent={handleAddEvent} />} />
@@ -109,17 +143,33 @@ function App() {
           <Route path="/about" element={<About onAddEvent={handleAddEvent} />} />
           <Route path="/user" element={<User onAddEvent={handleAddEvent} />} />
           {/* Submenu */}
-          <Route path="/user/information" element={<UserInformation />} />
+          <Route path="/user/information" element={<UserInformation onAddEvent={handleAddEvent} />} />
           <Route path="/user/password" element={<UserPassword />} />
           <Route path="/user/payment" element={<UserPayment />} />
           <Route path="/user/subscription" element={<UserSubscription />} />
         </Routes>
-
         <div className="user-events-container">
           <h2>User Events</h2>
           <ul>
             {events.map((event, index) => (
-              <li key={index}>{event}</li>
+              <li key={index}>
+                {editingEvent === index ? (
+                  <>
+                    <input
+                      type="text"
+                      value={editingText}
+                      onChange={(e) => setEditingText(e.target.value)}
+                    />
+                    <button onClick={handleSaveEvent}>Save</button>
+                    <button onClick={handleCancelEdit}>Cancel</button>
+                  </>
+                ) : (
+                  <>
+                    {event}
+                    <button onClick={() => handleEditEvent(index)}>Edit</button>
+                  </>
+                )}
+              </li>
             ))}
           </ul>
           {events.length > 0 && (

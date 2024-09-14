@@ -50,6 +50,7 @@ header {
   border: 2px solid #ccc;
   margin-bottom: 10px;
 }
+
 .streamlist-home-container button {
   padding: 8px 12px;
   background-color: #007bff;
@@ -58,6 +59,7 @@ header {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .streamlist-logo {
   max-width: 250px; 
   height: auto; 
@@ -74,7 +76,6 @@ header {
   background-color: #ffffff;
   z-index: 10;
   overflow-y: auto;
-  max-height: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -134,4 +135,50 @@ header {
 .submenu a:hover {
   color: #000000;
   background-color: #ffffff;
+}
+
+/* Flexbox styles for UserInformation fields and labels */
+.user-info-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Adds space between form groups */
+  width: 80%; /* Width of the form */
+  max-width: 600px; /* Maximum width for responsiveness */
+  margin: 0 auto; /* Center the form */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between label and input */
+}
+
+.form-group label {
+  flex: 0 0 120px; /* Fixed width for labels */
+  text-align: right; /* Align text to the right */
+}
+
+.form-group input {
+  flex: 1; /* Allows input to take up remaining space */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 15px; /* Space above buttons */
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darken button on hover */
+}
+
+button:not(:last-child) {
+  margin-right: 10px; /* Space between Save and Cancel buttons */
 }
