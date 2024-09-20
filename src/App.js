@@ -111,8 +111,9 @@ function App() {
               <li>
                 <Link to="/movies">
                   <img
+
                     src={moviesIcon}
-                    alt="Movies"
+                    alt="Movies 2"
                     className="menu-icon"
                     onClick={() => handleIconClick('Movies')}
                     onMouseEnter={() => handleIconHover('Movies')}

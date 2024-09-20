@@ -1,5 +1,5 @@
 // services/tmdbService.js
-const API_KEY = 'f331cd85f0c5525b594a04be92426509'; 
+const API_KEY = 'xxxxx'; 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 export const fetchPopularMovies = async () => {

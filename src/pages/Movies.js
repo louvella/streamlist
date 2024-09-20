@@ -19,7 +19,9 @@ function MoviesPage() {
             <li key={movie.id} className="movie-card" style={{zIndex: index}}>
               <img className="movie-image" src={`${IMG_BASE_URL}${movie.poster_path}`} width="110" height="165" alt="movie_poster" />
               <div>
-                <h2>{movie.title}</h2>
+                <h2>
+                  {movie.title}
+                  </h2>
                 <p>{movie.overview}</p>
                 <p>Rating: {movie.vote_average}</p>
               </div>
