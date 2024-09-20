@@ -1,32 +1,46 @@
-import React, { useState } from "react";
+// streamlisthome.js
+import React, { useState } from 'react';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 function StreamListHome({ onAddEvent }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
+  const [movies] = useLocalStorage('movies', [])
+  const [filteredMovies, setFilteredMovies] = useState([])
 
   // Function for input change
   const handleInputChange = (event) => {
     setInput(event.target.value);
-  };
 
-  // Function for submission of form
-  const handleSubmit = (event) => {
-    event.preventDefault(); // As per Prof Kanto feedback, prevents the default form submission behavior
-    console.log(input);
-    onAddEvent(`User submitted: ${input}`); 
-    setInput(""); 
+    if (!input) {
+      setFilteredMovies(movies)
+    }
+
+    // Log search event 
+    onAddEvent(`Search Event:User searched string ${event.target.value}`)
+    
+    // Filter movies based on input
+    const filtered = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setFilteredMovies(filtered);
   };
 
   return (
     <div className="streamlist-home-container">
       <h1>Search Movies</h1>
-      {/* Form element to wrap input and button */}
-      <form onSubmit={handleSubmit}> 
+      <form>
         <input type="text" value={input} onChange={handleInputChange} />
-        <button type="submit">Submit</button>
       </form>
+      {/* Display the filtered movies */}
+      <ul>
+        {(filteredMovies.length ? filteredMovies : movies).map((movie) => (
+          <li key={movie.id}>
+            {movie.title} (Rating: {movie.vote_average})
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default StreamListHome;
-// original

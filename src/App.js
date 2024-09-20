@@ -1,6 +1,7 @@
 // App.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useLocalStorage } from "@uidotdev/usehooks";
 import StreamListHome from "./pages/StreamListHome";
 import Movies from "./pages/Movies";
 import Cart from "./pages/Cart";
@@ -17,12 +18,30 @@ import cartIcon from './assets/cart.png';
 import aboutIcon from './assets/about.png';
 import userIcon from './assets/user.png';
 import logo from './assets/sllogo.png';
+// Import TMDB service
+import { fetchPopularMovies } from './services/tmdbService'; // Import TMDB service
 
 function App() {
   const [events, setEvents] = useState([]);
   const [editingEvent, setEditingEvent] = useState(null);
   const [editingText, setEditingText] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [movies, setMovies] = useLocalStorage('movies', [])
 
+  const havefetched = useRef(false)
+  useEffect(() => {
+    // Fetch and store movies in localStorage
+    async function fetchAndSetMovies() {
+      if (!havefetched.current) {
+        // ensures the fetch only happens once (react runs twice in dev-mode)
+        havefetched.current = true
+        const fetchedMovies = await fetchPopularMovies();
+        setMovies(fetchedMovies)
+      }
+    }
+    fetchAndSetMovies()
+  }, [setMovies]);
+  
   // Load events from localStorage on mount
   useEffect(() => {
     const storedEvents = JSON.parse(localStorage.getItem("userEvents")) || [];

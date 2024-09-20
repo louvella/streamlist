@@ -1,4 +1,3 @@
-// UserInformation.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -80,7 +79,8 @@ function UserInformation({ onAddEvent }) {
       phoneNumber: "",
       email: "",
     });
-    setIsReadOnly(true); // Reset to read-only mode
+    // Resets the fields to read-only mode when the readonly condition below is met
+    setIsReadOnly(true); 
     onAddEvent("User information deleted.");
   };
 
@@ -166,7 +166,7 @@ function UserInformation({ onAddEvent }) {
             readOnly={isReadOnly}
           />
         </div>
-        {/* Show Edit button if in read-only mode, otherwise show Save, Cancel, and Delete buttons */}
+        {/* Show Edit button when its in read-only mode or show Save, Cancel, and Delete buttons */}
         {isReadOnly ? (
           <button type="button" onClick={handleEdit}>
             Edit
